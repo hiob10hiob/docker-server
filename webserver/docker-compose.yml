@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  traefik_default:
+    external: true
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    volumes:
+      - '$PWD/html:/usr/share/nginx/html'
+    labels:
+      - traefik.backend=nginx
+      - traefik.frontend.rule=Host:www.example.com
+      - traefik.docker.network=traefik_default
+      - traefik.port=80
+    networks:
+      - traefik_default

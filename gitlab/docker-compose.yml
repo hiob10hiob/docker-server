@@ -1,0 +1,36 @@
+version: "3"
+
+networks:
+  traefik_default:
+    external: true
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab
+    restart: always
+    # change URL here
+    hostname: 'git.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+      # change URL here
+        external_url 'https://git.example.com'
+        # configuration for using gitlab behind a proxy, disable https
+        nginx['redirect_http_to_https'] = false
+        nginx['listen_port'] = 80
+        nginx['listen_https'] = false
+        # Add any other gitlab.rb configuration here, each on its own line
+    labels:
+      - traefik.backend=gitlab
+        # change URL here
+      - traefik.frontend.rule=Host:git.example.com
+      - traefik.docker.network=traefk_default
+      - traefik.port=80
+    ports:
+      - '23:22'
+    volumes:
+      - '$PWD/gitlab/config:/etc/gitlab'
+      - '$PWD/gitlab/logs:/var/log/gitlab'
+      - '$PWD/gitlab/data:/var/opt/gitlab'
+    networks:
+      - traefik_default
