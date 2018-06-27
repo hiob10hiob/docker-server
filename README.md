@@ -27,12 +27,12 @@ Using [docker-compose] (https://docs.docker.com/compose/) for easy deployment. T
 ## Where is my data stored?
 
  You can find your files hier:
- - gitlab
-  - `/gitlab/config`
-  - `/gitlab/logs`
-  - `/gitlab/data`
+ - Gitlab
+    - `/gitlab/config`
+    - `/gitlab/logs`
+    - `/gitlab/data`
  - Webserver
-  - `/webserver/html
+    - `/webserver/html
   `  
 
 
