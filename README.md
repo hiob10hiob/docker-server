@@ -2,12 +2,12 @@
 
 My vServer setup to run Gitlab and a simple Webserver.
 Using [docker-compose] (https://docs.docker.com/compose/) for easy deployment. The folowing offical containers are used:
- - [traefik] (https://hub.docker.com/r/library/traefik/)
- - [nginx] (https://hub.docker.com/_/nginx/)
- - [gitlab-ce] (https://hub.docker.com/r/gitlab/gitlab-ce/)
+ - [traefik](https://hub.docker.com/r/library/traefik/)
+ - [nginx](https://hub.docker.com/_/nginx/)
+ - [gitlab-ce](https://hub.docker.com/r/gitlab/gitlab-ce/)
 
 ## Requirments
-  - [docker](https://www.docker.com/) [Install Doc] (https://docs.docker.com/install/linux/docker-ce/debian/#os-requirements)
+  - [docker](https://www.docker.com/) [Install Doc](https://docs.docker.com/install/linux/docker-ce/debian/#os-requirements)
   - [docker-compose](https://docs.docker.com/compose/)
   - `apache2-utils`
   - Domain with subdomains (www, git, monitor) pointing to your vServers public ip adress.
